@@ -13,7 +13,7 @@ How to view locally (Windows PowerShell):
 1. Open PowerShell and change to the project directory:
 
 ```powershell
-cd "C:\Users\Jhon Mcneil Magtibay\Desktop\Try\Portfolio"
+cd "C:\Users\Portfolio"
 ```
 
 2. Option A — Quick (works in most modern browsers):
