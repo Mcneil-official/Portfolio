@@ -34,52 +34,52 @@
     }
   ],
   "projects": [
-    { 
-      "title": "Tourism Website", 
+    {
+      "title": "Tourism Website",
       "description": "Tourism website showcasing destinations and travel packages.",
       "languages": ["HTML", "CSS", "JavaScript", "Bootstrap"],
       "repository": "https://github.com/JhonMcFrost/Tourism",
       "deployment": "https://tourism-swart-zeta.vercel.app/",
       "image": "images/projects/tourism.png"
     },
-    { 
-      "title": "Oh Crepe!: E-commerce Website", 
+    {
+      "title": "Oh Crepe!: E-commerce Website",
       "description": "E-commerce website for a fictional crepe shop with responsive product pages.",
       "languages": ["Angular", "TypeScript", "CSS", "Node.js", "JavaScript"],
       "repository": "https://github.com/JhonMcFrost/Oh-crepe-",
       "deployment": "https://oh-crepe-seven.vercel.app/",
       "image": "images/projects/ohcrepe.png"
     },
-    { 
-      "title": "CRUD Student Management System", 
+    {
+      "title": "CRUD Student Management System",
       "description": "Web application for managing student records with full CRUD operations.",
       "languages": ["Angular", "TypeScript", "JSON Server"],
       "repository": "https://github.com/JhonMcFrost/student_management_system",
       "image": "images/projects/studentmanagement.png"
     },
-    { 
-      "title": "VaultX ATM CLI Process", 
+    {
+      "title": "VaultX ATM CLI Process",
       "description": "Command-line ATM transaction simulator built with Java and MySQL.",
       "languages": ["Java", "MySQL"],
       "repository": "https://github.com/JhonMcFrost/ATM_process",
       "image": "images/projects/vaultx.png"
     },
-    { 
-      "title": "CRUD System", 
+    {
+      "title": "CRUD System",
       "description": "Simple CRUD application for managing records.",
       "languages": ["Angular", "TypeScript", "JSON Server"],
       "repository": "https://github.com/JhonMcFrost/crud-app",
       "image": "images/projects/crudsystem.png"
     },
-    { 
-      "title": "Pathpickr", 
+    {
+      "title": "Pathpickr",
       "description": "Student track recommendation website that suggests suitable study paths.",
       "languages": ["HTML", "CSS", "Java", "JavaScript"],
       "repository": "https://github.com/JhonMcFrost/PathPickr",
       "image": "images/projects/pathpickr.png"
     },
-    { 
-      "title": "Login API with OAuth2 for Stockout", 
+    {
+      "title": "Login API with OAuth2 for Stockout",
       "description": "RESTful API for user authentication and account access.",
       "languages": ["JavaScript", "Node.js", "Express", "OAuth2"],
       "repository": "https://github.com/JhonMcFrost/login"
@@ -95,7 +95,7 @@
       "description": "Machine learning project that detects and interprets sign language gestures.",
       "languages": ["Python"],
       "repository": "https://github.com/JhonMcFrost/Simple-Sign-Language-Detection",
-      "image" : "images/projects/signlanguage.png"
+      "image": "images/projects/signlanguage.png"
     }
   ],
   "notableAchievements": [
