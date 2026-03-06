@@ -26,13 +26,13 @@
                         </svg>
                         <span class="nav-text">About</span>
                     </a></li>
-                    <li><a class="nav-link" href="#education" title="Education">
+                    <li><a class="nav-link" href="#experience" title="Experience">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="m22 10-10-5L2 10l10 5 10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="m6 12 5 2.5 5-2.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12 22.5V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        <span class="nav-text">Education</span>
+                        <span class="nav-text">Experiences</span>
                     </a></li>
                     <li><a class="nav-link" href="#skills" title="Skills">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,6 +46,14 @@
                             <path d="M9 9h6v6H9z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                         <span class="nav-text">Projects</span>
+                    </a></li>
+                    <li><a class="nav-link" href="#education" title="Education">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m22 10-10-5L2 10l10 5 10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="m6 12 5 2.5 5-2.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 22.5V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="nav-text">Education</span>
                     </a></li>
                     <li><a class="nav-link" href="#notable-achievements" title="Achievements">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -96,20 +104,19 @@
         <main class="main-content">
             <div class="content-wrapper">
                     <!-- Header -->
-                    <header id="header" class="site-header">
-                        <!-- populated by data.json -->
-                        <div class="d-flex flex-column flex-md-row align-items-center gap-3">
-                            <img alt="Avatar" class="avatar shadow-sm" />
-                            <div class="flex-fill text-center text-md-start">
-                                <h1 class="h4 mb-1 fw-bold" id="name">Your name</h1>
-                                <p class="mb-2 text-muted" id="title">Title</p>
-                                <div id="chips" class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start"></div>
-                                <div class="CV_link">
-                                    <a id="resume-link" href="https://drive.google.com/uc?export=download&id=1kTv6LPN5LXq1c50V1BPZNCJeAasim88a" download>
-                                        <button>Download CV</button>
-                                    </a>
-                                </div>
+                    <header id="header" class="site-header hero-section">
+                        <div class="hero-glow"></div>
+                        <div class="hero-content">
+                            <div class="hero-left">
+                                <p class="hero-role" id="title">Full Stack Developer</p>
+                                <h1 class="hero-name" id="name">Your name</h1>
+                                <div id="chips" class="hero-chips"></div>
+                                <a id="resume-link" class="hero-cv-btn" href="https://drive.google.com/uc?export=download&id=1kTv6LPN5LXq1c50V1BPZNCJeAasim88a" download>Download CV</a>
                             </div>
+                        </div>
+
+                        <div class="hero-image-wrap" aria-hidden="true">
+                            <img id="hero-fullbody" class="hero-image" alt="Full body portrait" />
                         </div>
                     </header>
 
@@ -121,39 +128,39 @@
                         <p class="mb-0" id="about-text">About text</p>
                     </section>
 
-                    <!-- Education -->
-                    <section id="education" class="py-4">
-                        <h2 class="h5 fw-bold">Education</h2>
-                        <div id="education-list" class="mt-3"></div>
+                    <!-- Experience -->
+                    <section id="experience" class="py-4">
+                        <h2 class="h5 fw-bold">Experiences</h2>
+                        <div id="experience-list" class="mt-3"></div>
                     </section>
 
                     <!-- Skills -->
                     <section id="skills" class="py-4">
                         <h2 class="h5 fw-bold">Skills</h2>
-                        <div id="skills-list" class="mt-3 d-flex flex-wrap gap-2"></div>
+                        <div id="skills-list" class="mt-3"></div>
                     </section>
 
                     <!-- Projects -->
                     <section id="projects" class="py-4">
                         <h2 class="h5 fw-bold">Projects</h2>
                         <div id="projects-grid" class="mt-3 row g-3"></div>
-                    </section> 
+                    </section>
+
+                    <!-- Education -->
+                    <section id="education" class="py-4">
+                        <h2 class="h5 fw-bold">Education</h2>
+                        <div id="education-list" class="mt-3"></div>
+                    </section>
                     
                     <!-- Notable Achievements -->
                     <section id="notable-achievements" class="py-4">
-                        <h2 class="h5 fw-bold">Notable Achievements</h2>
+                        <h2 class="h5 fw-bold">Achievements</h2>
                         <div id="notable-achievements-list" class="mt-3"></div>
-                    </section>
-
-                    <!-- School Projects -->
-                    <section id="school-projects" class="py-4">
-                        <h2 class="h5 fw-bold">School Projects</h2>
-                        <div id="school-projects-list" class="mt-3"></div>
                     </section>
 
                     <!-- Contact Form -->
                     <section id="contact" class="py-4">
-                        <h2 class="h5 fw-bold">Get In Touch</h2>
+                        <h2 class="h5 fw-bold">Contact</h2>
                         <p class="text-muted mb-4">Have a question or want to work together? Send me a message!</p>
                         
                         <form id="contact-form" class="contact-form">
@@ -203,6 +210,40 @@
             </main>
 
         <!-- Bootstrap 5 JS + Popper (CDN) -->
+        <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content project-modal-content">
+                    <div class="modal-header project-modal-header">
+                        <h5 class="modal-title" id="projectModalTitle">Project</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body project-modal-body">
+                        <div class="project-modal-image-wrap">
+                            <img id="projectModalImage" class="project-modal-image d-none" alt="Project preview" />
+                        </div>
+                        <p id="projectModalDescription" class="mb-3"></p>
+                        <div id="projectModalLanguages" class="project-modal-languages mb-3"></div>
+                        <div class="project-modal-actions">
+                            <a id="projectModalRepo" class="project-modal-btn" href="#" target="_blank" rel="noopener noreferrer">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>Repository</span>
+                            </a>
+                            <a id="projectModalLive" class="project-modal-btn" href="#" target="_blank" rel="noopener noreferrer">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M14 3h7v7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M21 3l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M20 14v4a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>Live Site</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <!-- EmailJS -->
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>

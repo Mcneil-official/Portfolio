@@ -87,6 +87,10 @@ function setupContactForm() {
 
 // Render helpers
 function el(tag, cls, text){ const e = document.createElement(tag); if(cls) e.className = cls; if(text!==undefined) e.textContent = text; return e; }
+function ensureHttp(url){
+  if(!url) return '';
+  return /^https?:\/\//i.test(url) ? url : `https://${url}`;
+}
 
 // Get language icon (accurate logos)
 function getLangIcon(lang) {
@@ -109,6 +113,10 @@ function getLangIcon(lang) {
     'Responsive UI': '<svg width="14" height="14" viewBox="0 0 32 32"><rect x="2" y="4" width="18" height="14" rx="1" stroke="#4ecdc4" stroke-width="2" fill="none"/><rect x="12" y="20" width="14" height="10" rx="1" stroke="#4ecdc4" stroke-width="2" fill="none"/><circle cx="19" cy="28" r="1" fill="#4ecdc4"/></svg>'
   };
   
+  if (typeof lang === 'string' && lang.toLowerCase() === 'mysql') {
+    return '<svg width="14" height="14" viewBox="0 0 32 32"><ellipse cx="16" cy="7" rx="10" ry="4" fill="#00758f"/><path d="M6 7v14c0 2.2 4.5 4 10 4s10-1.8 10-4V7" fill="#008aa3"/><ellipse cx="16" cy="21" rx="10" ry="4" fill="#005f73"/><ellipse cx="16" cy="14" rx="10" ry="4" fill="#00758f"/></svg>';
+  }
+
   return icons[lang] || icons[lang.replace('.', '')] || null;
 }
 
@@ -117,13 +125,16 @@ async function loadData(){
     const res = await fetch('data.json', {cache: 'no-store'});
     if(!res.ok) throw new Error('Failed to load data.json');
     const data = await res.json();
+    const c = data.contact || {};
 
     // Header
-  document.getElementById('name').textContent = data.name || '';
-  document.getElementById('title').textContent = data.title || '';
-  // avatar removed from markup — if present, set src, otherwise ignore
-  const avatar = document.querySelector('#header img.avatar');
-  if(avatar && data.avatar) avatar.src = data.avatar;
+    document.getElementById('name').textContent = data.name || '';
+    document.getElementById('title').textContent = data.title || '';
+
+    const heroImage = document.getElementById('hero-fullbody');
+    if (heroImage) {
+      heroImage.src = data['full-body-pic'] || data.fullBodyPic || data.avatar || '';
+    }
 
     //Education
     const educationList = document.getElementById('education-list');
@@ -156,46 +167,153 @@ async function loadData(){
     const aboutText = data.about || '';
     document.getElementById('about-text').innerHTML = aboutText.replace(/\n/g, '<br>');
 
+    // Experience
+    const experienceList = document.getElementById('experience-list');
+    if (experienceList) {
+      experienceList.innerHTML = '';
+      (data.experiences || data.experience || []).forEach(exp => {
+        const div = el('div', 'education-item mb-3 p-3');
+        const position = el('h3', 'h6 mb-1 fw-semibold', exp.position || exp.role || '');
+        const company = el('p', 'mb-1 text-muted', exp.company || exp.organization || '');
+        const duration = el('p', 'mb-1 education-details', exp.duration || exp.year || '');
+        const description = el('p', 'mb-0 text-muted', exp.description || '');
+
+        div.appendChild(position);
+        div.appendChild(company);
+        div.appendChild(duration);
+        div.appendChild(description);
+        experienceList.appendChild(div);
+      });
+    }
+
     // Skills
     const skillsList = document.getElementById('skills-list');
     skillsList.innerHTML = '';
-    (data.skills||[]).forEach(s => { 
-      const sp = document.createElement('span');
-      sp.className = 'skill';
-      
-      // Add icon based on skill
-      const icon = getLangIcon(s);
+    const skills = data.skills || [];
+    const makeSkillItem = (skillName) => {
+      const item = document.createElement('span');
+      item.className = 'skill';
+      item.setAttribute('title', skillName);
+      item.setAttribute('aria-label', skillName);
+
+      const label = document.createElement('span');
+      label.className = 'skill-label';
+      label.textContent = skillName;
+
+      const icon = getLangIcon(skillName);
       if (icon) {
-        sp.innerHTML = icon + ' ' + s;
+        const iconWrap = document.createElement('span');
+        iconWrap.className = 'skill-icon';
+        iconWrap.innerHTML = icon;
+        item.appendChild(iconWrap);
+        item.appendChild(label);
       } else {
-        sp.textContent = s;
+        item.appendChild(label);
       }
-      
-      skillsList.appendChild(sp); 
-    });
+      return item;
+    };
+
+    if (skills.length > 0) {
+      const track = document.createElement('div');
+      track.className = 'skills-track';
+
+      const firstGroup = document.createElement('div');
+      firstGroup.className = 'skills-group';
+      skills.forEach(skillName => firstGroup.appendChild(makeSkillItem(skillName)));
+
+      const secondGroup = document.createElement('div');
+      secondGroup.className = 'skills-group';
+      skills.forEach(skillName => secondGroup.appendChild(makeSkillItem(skillName)));
+
+      track.appendChild(firstGroup);
+      track.appendChild(secondGroup);
+      skillsList.appendChild(track);
+
+      const duration = Math.max(16, skills.length * 2.8);
+      skillsList.style.setProperty('--skills-duration', `${duration}s`);
+    }
 
     // Projects
     const projectsGrid = document.getElementById('projects-grid');
     projectsGrid.innerHTML = '';
+    const projectModalElement = document.getElementById('projectModal');
+    const projectModal = projectModalElement && window.bootstrap ? new window.bootstrap.Modal(projectModalElement) : null;
+    const projectModalTitle = document.getElementById('projectModalTitle');
+    const projectModalImage = document.getElementById('projectModalImage');
+    const projectModalDescription = document.getElementById('projectModalDescription');
+    const projectModalLanguages = document.getElementById('projectModalLanguages');
+    const projectModalRepo = document.getElementById('projectModalRepo');
+    const projectModalLive = document.getElementById('projectModalLive');
+
+    const openProjectModal = (project) => {
+      if (!projectModal || !project) return;
+
+      if (projectModalTitle) projectModalTitle.textContent = project.title || 'Project';
+      if (projectModalDescription) projectModalDescription.textContent = project.description || '';
+
+      if (projectModalImage) {
+        if (project.image) {
+          projectModalImage.src = project.image;
+          projectModalImage.alt = `${project.title || 'Project'} preview`;
+          projectModalImage.classList.remove('d-none');
+        } else {
+          projectModalImage.classList.add('d-none');
+          projectModalImage.removeAttribute('src');
+        }
+      }
+
+      if (projectModalLanguages) {
+        projectModalLanguages.innerHTML = '';
+        (project.languages || []).forEach((lang) => {
+          const langChip = document.createElement('span');
+          langChip.className = 'project-lang-chip';
+          const icon = getLangIcon(lang);
+          if (icon) {
+            langChip.innerHTML = icon + ' ' + lang;
+          } else {
+            langChip.textContent = lang;
+          }
+          projectModalLanguages.appendChild(langChip);
+        });
+      }
+
+      const repoUrl = project.repository || '';
+      const liveSiteUrl = project.deployment || project.live || '';
+
+      if (projectModalRepo) {
+        if (repoUrl) {
+          projectModalRepo.href = ensureHttp(repoUrl);
+          projectModalRepo.classList.remove('d-none');
+        } else {
+          projectModalRepo.classList.add('d-none');
+          projectModalRepo.removeAttribute('href');
+        }
+      }
+
+      if (projectModalLive) {
+        if (liveSiteUrl) {
+          projectModalLive.href = ensureHttp(liveSiteUrl);
+          projectModalLive.classList.remove('d-none');
+        } else {
+          projectModalLive.classList.add('d-none');
+          projectModalLive.removeAttribute('href');
+        }
+      }
+
+      projectModal.show();
+    };
+
     (data.projects||[]).forEach(proj => {
       const col = el('div','col-12 col-md-6 col-lg-4');
 
-      // Always render a div.card and add behavior for repo/live links
+      // Minimal project card (details shown in modal)
       const card = document.createElement('div');
       card.className = 'card project-card h-100';
-      card.style.cursor = proj.repository ? 'pointer' : 'default';
+      card.style.cursor = 'pointer';
 
-      // Accessibility: allow keyboard activation like a link
-      card.setAttribute('role','link');
+      // Accessibility: allow keyboard activation like a button
+      card.setAttribute('role','button');
       card.setAttribute('tabindex','0');
-
-      // Store links as dataset for handlers
-      if (proj.repository) card.dataset.repo = proj.repository;
-      const liveUrl = proj.deployment || proj.live; // support either key
-      if (liveUrl) {
-        card.dataset.live = liveUrl;
-        card.classList.add('has-deployment'); // Mark cards with deployment
-      }
 
       // Add project image if available
       if (proj.image) {
@@ -211,73 +329,20 @@ async function loadData(){
 
       const body = document.createElement('div'); 
       body.className = 'card-body';
-      const row = document.createElement('div'); 
-      row.className = 'd-flex align-items-center mb-2';
-      const svg = el('svg','me-2 icon-indigo'); 
-      svg.setAttribute('width','20'); 
-      svg.setAttribute('height','20'); 
-      svg.setAttribute('viewBox','0 0 24 24');
-      svg.innerHTML = '<path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>';
-      const h = el('h3','h6 mb-0 fw-semibold', proj.title||'');
-      row.appendChild(svg); 
-      row.appendChild(h);
+      const h = el('h3','h6 mb-2 fw-semibold', proj.title||'');
       const p = el('p','card-text text-muted', proj.description||'');
-      body.appendChild(row); 
+      
+      body.appendChild(h); 
       body.appendChild(p); 
 
-      // Add programming language chips if they exist
-      if (proj.languages && proj.languages.length > 0) {
-        const langContainer = el('div', 'mt-2 d-flex flex-wrap gap-1');
-        proj.languages.forEach(lang => {
-          const langChip = document.createElement('span');
-          langChip.className = 'project-lang-chip';
-          
-          // Add icon based on language
-          const icon = getLangIcon(lang);
-          if (icon) {
-            langChip.innerHTML = icon + ' ' + lang;
-          } else {
-            langChip.textContent = lang;
-          }
-          
-          langContainer.appendChild(langChip);
-        });
-        body.appendChild(langContainer);
-      }
-
-      // Add "View Site" button if deployment (live) URL exists, placed after description
-      if (liveUrl) {
-        const liveBtn = document.createElement('a');
-        liveBtn.className = 'project-live-btn';
-        liveBtn.href = liveUrl;
-        liveBtn.target = '_blank';
-        liveBtn.rel = 'noopener noreferrer';
-        liveBtn.setAttribute('aria-label', `Open live site for ${proj.title || 'project'}`);
-        liveBtn.innerHTML = `
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M14 3h7v7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M21 3l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M20 14v4a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span>View Site</span>`;
-        body.appendChild(liveBtn);
-      }
-
-      // Click/keyboard handlers to open repository when card is activated
-      const openRepo = () => {
-        if (card.dataset.repo) {
-          window.open(card.dataset.repo, '_blank', 'noopener');
-        }
-      };
-      card.addEventListener('click', (e) => {
-        // If the live button was clicked, let its default behavior occur
-        if (e.target && e.target.closest && e.target.closest('.project-live-btn')) return;
-        openRepo();
+      // Click/keyboard handlers to open modal when card is activated
+      card.addEventListener('click', () => {
+        openProjectModal(proj);
       });
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          openRepo();
+          openProjectModal(proj);
         }
       });
 
@@ -289,53 +354,34 @@ async function loadData(){
     // Notable Achievements
     const notableAchievementsList = document.getElementById('notable-achievements-list');
     notableAchievementsList.innerHTML = '';
-    (data['notable achievements']||[]).forEach(achievement => {
+    (data.notableAchievements || data['notable achievements'] || []).forEach(achievement => {
       const div = el('div','notable-achievement-item mb-3 p-3');
-      const title = el('h3','h6 mb-1 fw-semibold', achievement.title||'');
-      const description = el('p','mb-1 text-muted', achievement.description||'');
-      const year = el('p','mb-0 achievement-year', achievement.year||'');
+      const title = el('h3','h6 mb-1 fw-semibold', achievement.title || '');
+      const metaParts = [achievement.type, achievement.organization, achievement.year].filter(Boolean);
+      const meta = el('p','mb-1 achievement-meta', metaParts.join(' • '));
+      const description = el('p','mb-0 text-muted', achievement.description || '');
       div.appendChild(title);
+      if (metaParts.length) div.appendChild(meta);
       div.appendChild(description);
-      div.appendChild(year);
       notableAchievementsList.appendChild(div);
     });
 
-    // School Projects
-    const schoolProjectsList = document.getElementById('school-projects-list');
-    schoolProjectsList.innerHTML = '';
-    (data['school_projects']||[]).forEach(project => {
-      const div = el('div','school-project-item mb-3 p-3');
-      const title = el('h3','h6 mb-2 fw-semibold', project.title||'');
-      const description = el('p','mb-3 text-muted', project.description||'');
-      const link = document.createElement('a');
-      link.className = 'school-project-link';
-      link.href = project.link||'#';
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      link.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 3h7v7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 3l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 14v4a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> View Project';
-      div.appendChild(title);
-      div.appendChild(description);
-      div.appendChild(link);
-      schoolProjectsList.appendChild(div);
-    });
-
     // Sidebar Contact Icons
-    const c = data.contact || {};
     if(c.linkedin) {
       const linkedinLink = document.getElementById('contact-linkedin');
-      linkedinLink.href = `https://${c.linkedin}`;
+      linkedinLink.href = ensureHttp(c.linkedin);
     }
     if(c.github) {
       const githubLink = document.getElementById('contact-github');
-      githubLink.href = `https://${c.github}`;
+      githubLink.href = ensureHttp(c.github);
     }
     if(c.instagram) {
       const instagramLink = document.getElementById('contact-instagram');
-      instagramLink.href = `https://${c.instagram}`;
+      instagramLink.href = ensureHttp(c.instagram);
     }
     if(c.facebook) {
       const facebookLink = document.getElementById('contact-facebook');
-      facebookLink.href = `https://${c.facebook}`;
+      facebookLink.href = ensureHttp(c.facebook);
     }
     
     // Store email for contact form

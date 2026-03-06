@@ -2,10 +2,11 @@
   "name": "Jhon Mcneil Magtibay",
   "title": "Full Stack Developer",
   "avatar": "images/ID_pic.png",
-  "about": "Hi! I'm Mcneil. \n \nI'm a full-stack developer who specializes in backend development, with a strong focus on building efficient, scalable, and secure server-side applications. I love tackling complex problems and designing systems that run smoothly behind the scenes while ensuring a seamless experience on the front end. \n\nWhen I’m not coding, you’ll probably find me immersed in survival and puzzle games — I enjoy the challenge of strategic thinking and problem-solving, whether it’s surviving in a digital wilderness or cracking intricate puzzles.",
+  "full-body-pic": "images/fullbody.png",
+  "about": "Hi! I'm Mcneil, a full-stack developer focused on backend development. I build efficient, scalable, and secure server-side applications while keeping the front-end experience smooth and reliable. I enjoy solving complex problems and creating systems that are practical and easy to use.",
   "education": [
     {
-      "degree": "Bachelor of Science in Information Technology major in Business Analiytics",
+      "degree": "Bachelor of Science in Information Technology major in Business Analytics",
       "institution": "Batangas State University The National Engineering School - Mabini Campus",
       "year": "2023 - Present"
     },
@@ -18,115 +19,120 @@
   ],
   "chips": ["Web Development", "Backend Development", "Frontend Development"],
   "skills": ["Angular", "Nodejs", "Java", "Responsive UI", "JavaScript", "HTML", "CSS", "MySQL", "Python"],
+  "experiences": [
+    {
+      "position": "Backend Developer Intern",
+      "company": "Stockout",
+      "duration": "May 2025 - June 2025",
+      "description": "Developing e-commerce web applications using Node.js and Express. Collaborated with frontend developers to integrate APIs and ensure seamless data flow."
+    },
+    {
+      "position": "Full Stack Developer",
+      "company": "Mabini.js",
+      "duration": "December 2025 - February 2026",
+      "description": "Competed in the 1st Mayoral Hackathon organized by the Naga City Local Government. Developed a web application using React Native, achieving top 5 finalist in the category of health among 100+ teams that participated in the hackathon."
+    }
+  ],
   "projects": [
     { 
-      "title": "VaultX ATM CLI Process", 
-      "description": "A command-line interface for ATM transactions.",
-      "languages": ["Java", "MySQL"],
-      "repository": "https://github.com/JhonMcFrost/ATM_process",
-      "image": "images/projects/vaultx.png"
-    },
-    { 
       "title": "Tourism Website", 
-      "description": "Beautiful tourism website showcasing destinations and packages.",
+      "description": "Tourism website showcasing destinations and travel packages.",
       "languages": ["HTML", "CSS", "JavaScript", "Bootstrap"],
       "repository": "https://github.com/JhonMcFrost/Tourism",
       "deployment": "https://tourism-swart-zeta.vercel.app/",
       "image": "images/projects/tourism.png"
     },
     { 
-      "title": "Pathpickr", 
-      "description": "A track recommending website for students that helps them find suitable study paths.",
-      "languages": ["HTML", "CSS", "Java", "JavaScript"],
-      "repository": "https://github.com/JhonMcFrost/PathPickr",
-      "image": "images/projects/pathpickr.png"
+      "title": "Oh Crepe!: E-commerce Website", 
+      "description": "E-commerce website for a fictional crepe shop with responsive product pages.",
+      "languages": ["Angular", "TypeScript", "CSS", "Node.js", "JavaScript"],
+      "repository": "https://github.com/JhonMcFrost/Oh-crepe-",
+      "deployment": "https://oh-crepe-seven.vercel.app/",
+      "image": "images/projects/ohcrepe.png"
     },
     { 
-      "title": "Login API with OAuth2", 
-      "description": "A RESTful API for user authentication and management.",
-      "languages": ["JavaScript", "Node.js", "Express", "OAuth2"],
-      "repository": "https://github.com/JhonMcFrost/login"
-    },
-    {
-      "title": "Signup API with OAuth2",
-      "description": "A RESTful API for user registration.",
-      "languages": ["JavaScript", "Node.js", "Express", "OAuth2"],
-      "repository": "https://github.com/JhonMcFrost/AST2008-Implement-User-Signup-API-NodeJS-SQLite-"
-    },
-    { 
-      "title": "CRUD System", 
-      "description": "A simple CRUD application for managing records.",
-      "languages": ["Angular", "TypeScript", "JSON Server"],
-      "repository": "https://github.com/JhonMcFrost/crud-app",
-      "image": "images/projects/crudsystem.png"
-    },
-        { 
       "title": "CRUD Student Management System", 
-      "description": "A web-based application for managing student records.",
+      "description": "Web application for managing student records with full CRUD operations.",
       "languages": ["Angular", "TypeScript", "JSON Server"],
       "repository": "https://github.com/JhonMcFrost/student_management_system",
       "image": "images/projects/studentmanagement.png"
     },
     { 
-      "title": "Oh Crepe!: E-commerce Website", 
-      "description": "An e-commerce website for a fictional crepe shop.",
-      "languages": ["Angular", "TypeScript", "CSS", "Node.js", "JavaScript"],
-      "repository": "hhttps://github.com/JhonMcFrost/Oh-crepe-",
-      "deployment": "https://oh-crepe-seven.vercel.app/",
-      "image": "images/projects/ohcrepe.png"
+      "title": "VaultX ATM CLI Process", 
+      "description": "Command-line ATM transaction simulator built with Java and MySQL.",
+      "languages": ["Java", "MySQL"],
+      "repository": "https://github.com/JhonMcFrost/ATM_process",
+      "image": "images/projects/vaultx.png"
+    },
+    { 
+      "title": "CRUD System", 
+      "description": "Simple CRUD application for managing records.",
+      "languages": ["Angular", "TypeScript", "JSON Server"],
+      "repository": "https://github.com/JhonMcFrost/crud-app",
+      "image": "images/projects/crudsystem.png"
+    },
+    { 
+      "title": "Pathpickr", 
+      "description": "Student track recommendation website that suggests suitable study paths.",
+      "languages": ["HTML", "CSS", "Java", "JavaScript"],
+      "repository": "https://github.com/JhonMcFrost/PathPickr",
+      "image": "images/projects/pathpickr.png"
+    },
+    { 
+      "title": "Login API with OAuth2 for Stockout", 
+      "description": "RESTful API for user authentication and account access.",
+      "languages": ["JavaScript", "Node.js", "Express", "OAuth2"],
+      "repository": "https://github.com/JhonMcFrost/login"
+    },
+    {
+      "title": "Signup API with OAuth2 for Stockout",
+      "description": "RESTful API for secure user registration.",
+      "languages": ["JavaScript", "Node.js", "Express", "OAuth2"],
+      "repository": "https://github.com/JhonMcFrost/AST2008-Implement-User-Signup-API-NodeJS-SQLite-"
     },
     {
       "title": "Simple Sign Language Detection",
-      "description": "A project that utilizes machine learning to detect and interpret sign language gestures.",
+      "description": "Machine learning project that detects and interprets sign language gestures.",
       "languages": ["Python"],
       "repository": "https://github.com/JhonMcFrost/Simple-Sign-Language-Detection",
       "image" : "images/projects/signlanguage.png"
     }
   ],
-  "notable achievements": [
+  "notableAchievements": [
     {
-      "title": "Learning Express Program 2025",
-      "description": "Participated in LeX Program2025: Global to Local Community Engagement, hosted by BatState-U TNEU, in partnership with Singapore Polytechnic. ",
+      "title": "Learning Express Program",
+      "organization": "BatState-U TNEU × Singapore Polytechnic",
+      "type": "Program",
+      "description": "Participated in LeX 2025: Global to Local Community Engagement.",
       "year": "2025"
     },
     {
-      "title": "CICS Governor Mabini in Supreme Student Council",
-      "description": "Elected as the CICS Governor Mabini in Supreme Student Council for the 2025-2026 academic year",
+      "title": "CICS Governor Mabini",
+      "organization": "Supreme Student Council",
+      "type": "Leadership",
+      "description": "Assigned as CICS Governor Mabini for the 2025-2026 academic year.",
       "year": "2025-2026"
     },
     {
-      "title": "Vice President for External Affairs in CICS Mabini Student Council",
-      "description": "Elected as the Vice President for External Affairs of CICS Mabini Student Council for the 2025-2026 academic year",
-      "year": "2025-2026"
-    },
-    {
-      "title": "President in CICS Mabini Student Council",
-      "description": "Elected as the President of CICS Mabini Student Council for the 2024-2025 academic year",
-      "year": "2024-2025"
-    },
-    {
-      "title": "1st Year Representative in CICS Mabini Student Council",
-      "description": "Assigned as the 1st year representative in CICS Mabini Student Council for the 2023-2024 academic year",
-      "year": "2023-2024"
+      "title": "CICS Student Council Leadership",
+      "organization": "CICS Mabini Student Council",
+      "type": "Leadership",
+      "description": "Served as 1st Year Representative (2023-2024), President (2024-2025), and VP for External Affairs (2025-2026).",
+      "year": "2023-2026"
     },
     {
       "title": "Computer System Servicing NC II",
-      "description": "Completed the National Certificate II for Computer Systems Servicing under TESDA",
+      "organization": "TESDA",
+      "type": "Certification",
+      "description": "Completed National Certificate II for Computer System Servicing.",
       "year": "2023"
-    }
-  ],
-  "school_projects": [
-    {
-    "title": "NutriBlend Lookers Report",
-    "description": "A Lookers Studio report analyzing the sales and performance of NutriBlend products.",
-    "link": "https://lookerstudio.google.com/s/nEu10wluDOc"
     }
   ],
   "contact": {
     "email": "jhonmcneilmagtibay5002@gmail.com",
-    "linkedin": "linkedin.com/in/jhon-mcneil-magtibay",
-    "github": "github.com/JhonMcFrost",
-    "facebook": "facebook.com/jhonmcneil.magtibay.7",
-    "instagram": "instagram.com/jhon_mc.neil"
+    "linkedin": "https://linkedin.com/in/jhon-mcneil-magtibay",
+    "github": "https://github.com/JhonMcFrost",
+    "facebook": "https://facebook.com/jhonmcneil.magtibay.7",
+    "instagram": "https://instagram.com/jhon_mc.neil"
   }
 }
