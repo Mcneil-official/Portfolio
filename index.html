@@ -4,11 +4,59 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Jhon Mcneil Magtibay — Portfolio</title>
-        <!-- Bootstrap 5 CSS (CDN) -->
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+        <link rel="preload" as="image" href="images/fullbody.png" fetchpriority="high">
+        <style>
+            /* Critical first-paint styles while full CSS loads async */
+            html, body { margin: 0; max-width: 100%; overflow-x: hidden; }
+            body { background: #0b1520; color: #f8fbff; }
+            .page-loader {
+                position: fixed;
+                inset: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(10, 18, 32, 0.96);
+                z-index: 3000;
+                opacity: 1;
+                visibility: visible;
+            }
+            .page-loader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .35s ease, visibility .35s ease; }
+            .loader-svg { height: 62px; width: 100px; }
+        </style>
+        <!-- Bootstrap 5 CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
+                <div id="page-loader" class="page-loader" role="status" aria-live="polite" aria-label="Loading portfolio">
+                        <svg
+                            class="loader-svg"
+                            x="0px"
+                            y="0px"
+                            viewBox="0 0 50 31.25"
+                            height="31.25"
+                            width="50"
+                            preserveAspectRatio="xMidYMid meet"
+                        >
+                            <path
+                                class="loader-track"
+                                stroke-width="4"
+                                fill="none"
+                                pathLength="100"
+                                d="M0.625 21.5 h10.25 l3.75 -5.875 l7.375 15 l9.75 -30 l7.375 20.875 v0 h10.25"
+                            />
+                            <path
+                                class="loader-car"
+                                stroke-width="4"
+                                fill="none"
+                                pathLength="100"
+                                d="M0.625 21.5 h10.25 l3.75 -5.875 l7.375 15 l9.75 -30 l7.375 20.875 v0 h10.25"
+                            />
+                        </svg>
+                </div>
+
         <!-- Mobile menu toggle -->
         <button class="mobile-toggle" aria-label="Toggle sidebar">
             <span></span>
@@ -116,7 +164,7 @@
                         </div>
 
                         <div class="hero-image-wrap" aria-hidden="true">
-                            <img id="hero-fullbody" class="hero-image" alt="Full body portrait" />
+                            <img id="hero-fullbody" class="hero-image" src="images/fullbody.png" width="900" height="1400" fetchpriority="high" decoding="async" alt="Full body portrait" />
                         </div>
                     </header>
 
@@ -244,9 +292,7 @@
             </div>
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- EmailJS -->
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-        <script src="main.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script defer src="main.js"></script>
     </body>
 </html>

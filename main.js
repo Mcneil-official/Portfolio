@@ -92,6 +92,21 @@ function ensureHttp(url){
   return /^https?:\/\//i.test(url) ? url : `https://${url}`;
 }
 
+const LOADER_MIN_MS = 250;
+const loaderStartTs = Date.now();
+
+function hidePageLoader() {
+  const loader = document.getElementById('page-loader');
+  if (!loader || loader.classList.contains('is-hidden')) return;
+
+  const elapsed = Date.now() - loaderStartTs;
+  const wait = Math.max(0, LOADER_MIN_MS - elapsed);
+
+  window.setTimeout(() => {
+    loader.classList.add('is-hidden');
+  }, wait);
+}
+
 // Get language icon (accurate logos)
 function getLangIcon(lang) {
   const icons = {
@@ -122,7 +137,7 @@ function getLangIcon(lang) {
 
 async function loadData(){
   try{
-    const res = await fetch('data.json', {cache: 'no-store'});
+    const res = await fetch('data.json');
     if(!res.ok) throw new Error('Failed to load data.json');
     const data = await res.json();
     const c = data.contact || {};
@@ -133,7 +148,8 @@ async function loadData(){
 
     const heroImage = document.getElementById('hero-fullbody');
     if (heroImage) {
-      heroImage.src = data['full-body-pic'] || data.fullBodyPic || data.avatar || '';
+      const nextSrc = data['full-body-pic'] || data.fullBodyPic || data.avatar || '';
+      if (nextSrc) heroImage.src = nextSrc;
     }
 
     //Education
@@ -190,47 +206,92 @@ async function loadData(){
     const skillsList = document.getElementById('skills-list');
     skillsList.innerHTML = '';
     const skills = data.skills || [];
-    const makeSkillItem = (skillName) => {
-      const item = document.createElement('span');
-      item.className = 'skill';
-      item.setAttribute('title', skillName);
-      item.setAttribute('aria-label', skillName);
+    const normalizeSkill = (value) => String(value || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+    const inSet = (value, setValues) => setValues.includes(normalizeSkill(value));
 
-      const label = document.createElement('span');
-      label.className = 'skill-label';
-      label.textContent = skillName;
+    const createSkillTag = (skillName) => {
+      const tag = document.createElement('span');
+      tag.className = 'skills-card-tag';
+      tag.setAttribute('title', skillName);
+      tag.setAttribute('aria-label', skillName);
 
       const icon = getLangIcon(skillName);
       if (icon) {
         const iconWrap = document.createElement('span');
-        iconWrap.className = 'skill-icon';
+        iconWrap.className = 'skills-card-icon';
         iconWrap.innerHTML = icon;
-        item.appendChild(iconWrap);
-        item.appendChild(label);
-      } else {
-        item.appendChild(label);
+        tag.appendChild(iconWrap);
       }
-      return item;
+
+      const label = document.createElement('span');
+      label.className = 'skills-card-label';
+      label.textContent = skillName;
+      tag.appendChild(label);
+
+      return tag;
     };
 
     if (skills.length > 0) {
-      const track = document.createElement('div');
-      track.className = 'skills-track';
+      const grid = document.createElement('div');
+      grid.className = 'skills-grid';
 
-      const firstGroup = document.createElement('div');
-      firstGroup.className = 'skills-group';
-      skills.forEach(skillName => firstGroup.appendChild(makeSkillItem(skillName)));
+      const categories = [
+        {
+          title: 'Frontend',
+          subtitle: 'UI and User experience',
+          matches: ['html', 'css', 'javascript', 'typescript', 'angular', 'react', 'responsiveui', 'bootstrap']
+        },
+        {
+          title: 'Backend',
+          subtitle: 'Server-side and data logic',
+          matches: ['nodejs', 'node', 'express', 'java', 'python', 'mysql', 'oauth2', 'jsonserver']
+        },
+        {
+          title: 'Tools',
+          subtitle: 'Workflow and productivity',
+          matches: ['git', 'github', 'postman', 'docker', 'vscode']
+        }
+      ];
 
-      const secondGroup = document.createElement('div');
-      secondGroup.className = 'skills-group';
-      skills.forEach(skillName => secondGroup.appendChild(makeSkillItem(skillName)));
+      const used = new Set();
+      const groups = [];
 
-      track.appendChild(firstGroup);
-      track.appendChild(secondGroup);
-      skillsList.appendChild(track);
+      categories.forEach((category) => {
+        const selected = skills.filter((skill) => inSet(skill, category.matches));
+        if (selected.length > 0) {
+          selected.forEach((skill) => used.add(skill));
+          groups.push({ title: category.title, subtitle: category.subtitle, items: selected });
+        }
+      });
 
-      const duration = Math.max(16, skills.length * 2.8);
-      skillsList.style.setProperty('--skills-duration', `${duration}s`);
+      const uncategorized = skills.filter((skill) => !used.has(skill));
+      if (uncategorized.length > 0) {
+        groups.push({ title: 'Other', subtitle: 'Additional stack', items: uncategorized });
+      }
+
+      groups.forEach((group) => {
+        const card = document.createElement('article');
+        card.className = 'skills-card';
+
+        const heading = document.createElement('h3');
+        heading.className = 'skills-card-title';
+        heading.textContent = group.title;
+
+        const subtitle = document.createElement('p');
+        subtitle.className = 'skills-card-subtitle';
+        subtitle.textContent = group.subtitle;
+
+        const tags = document.createElement('div');
+        tags.className = 'skills-card-tags';
+        group.items.forEach((skill) => tags.appendChild(createSkillTag(skill)));
+
+        card.appendChild(heading);
+        card.appendChild(subtitle);
+        card.appendChild(tags);
+        grid.appendChild(card);
+      });
+
+      skillsList.appendChild(grid);
     }
 
     // Projects
@@ -393,7 +454,13 @@ async function loadData(){
 
   }catch(err){
     console.error(err);
+  } finally {
+    hidePageLoader();
   }
 }
+
+window.addEventListener('pageshow', (event) => {
+  if (event.persisted) hidePageLoader();
+});
 
 document.addEventListener('DOMContentLoaded', () => { setupNavBehavior(); setupContactForm(); loadData(); });
