@@ -19,7 +19,7 @@
     }
   ],
   "chips": ["Web Development", "Backend Development", "Frontend Development", "Mobile Development"],
-  "skills": ["Angular", "Nodejs", "Java", "Flutter", "JavaScript", "HTML", "CSS", "MySQL", "Python"],
+  "skills": ["Angular", "Nodejs", "Java", "Flutter", "JavaScript", "HTML", "CSS", "MySQL", "Python", "React Native", "Bootstrap", "TypeScript", "Express", "JSON Server", "OAuth2"],
   "experiences": [
     {
       "position": "Backend Developer Intern",
@@ -108,6 +108,13 @@
       "languages": ["Python"],
       "repository": "https://github.com/JhonMcFrost/Simple-Sign-Language-Detection",
       "image": "images/projects/signlanguage.png"
+    },
+    {
+      "title": "AvesQuest",
+      "description": "AvesQuest is a mobile bird identification and collection journal. Snap a photo of a bird, let AI identify it, and build your personal BirdDex collection.",
+      "languages": ["Flutter"],
+      "repository": "https://github.com/Mcneil-official/AvesQuest",
+      "image": "images/projects/AvesQuest.jpg"
     }
   ],
   "certificates": [
