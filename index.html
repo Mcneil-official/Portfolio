@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -17,20 +17,20 @@
         <meta name="twitter:image" content="images/fullbody-optimized.png" />
         <link rel="canonical" href="https://mcneil-official.github.io/Portfolio/" />
         <title>Jhon Mcneil Magtibay — Portfolio</title>
-        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-        <link rel="preload" as="image" href="images/fullbody.png" fetchpriority="high">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
         <style>
-            /* Critical first-paint styles while full CSS loads async */
+            /* Critical first-paint styles while full CSS loads */
             html, body { margin: 0; max-width: 100%; overflow-x: hidden; }
-            body { background: #0b1520; color: #f8fbff; }
+            body { background: #f8fafc; color: #0f172a; }
             .page-loader {
                 position: fixed;
                 inset: 0;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: rgba(10, 18, 32, 0.96);
+                background: rgba(255, 255, 255, 0.96);
                 z-index: 3000;
                 opacity: 1;
                 visibility: visible;
@@ -38,274 +38,188 @@
             .page-loader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .35s ease, visibility .35s ease; }
             .loader-svg { height: 62px; width: 100px; }
         </style>
-        <!-- Bootstrap 5 CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="styles.css" />
     </head>
-    <body>
-                <div id="page-loader" class="page-loader" role="status" aria-live="polite" aria-label="Loading portfolio">
-                        <svg
-                            class="loader-svg"
-                            x="0px"
-                            y="0px"
-                            viewBox="0 0 50 31.25"
-                            height="31.25"
-                            width="50"
-                            preserveAspectRatio="xMidYMid meet"
-                        >
-                            <path
-                                class="loader-track"
-                                stroke-width="4"
-                                fill="none"
-                                pathLength="100"
-                                d="M0.625 21.5 h10.25 l3.75 -5.875 l7.375 15 l9.75 -30 l7.375 20.875 v0 h10.25"
-                            />
-                            <path
-                                class="loader-car"
-                                stroke-width="4"
-                                fill="none"
-                                pathLength="100"
-                                d="M0.625 21.5 h10.25 l3.75 -5.875 l7.375 15 l9.75 -30 l7.375 20.875 v0 h10.25"
-                            />
-                        </svg>
-                </div>
+    <body class="bg-slate-50 text-slate-900 antialiased">
+        <div id="loader-root"></div>
+        <div id="sidebar-root"></div>
 
-        <!-- Mobile menu toggle -->
-        <button class="mobile-toggle" aria-label="Toggle sidebar">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        
-        <aside class="sidebar">
-            <nav class="sidebar-nav">
-                <ul>
-                    <li><a class="nav-link" href="#about" title="About">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span class="nav-text">About</span>
-                    </a></li>
-                    <li><a class="nav-link" href="#experience" title="Experience">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span class="nav-text">Experiences</span>
-                    </a></li>
-                    <li><a class="nav-link" href="#skills" title="Skills">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <polygon points="12,2 15,9 22,9 17,14 19,22 12,18 5,22 7,14 2,9 9,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span class="nav-text">Skills</span>
-                    </a></li>
-                    <li><a class="nav-link" href="#projects" title="Projects">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3 3h18v18H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M9 9h6v6H9z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span class="nav-text">Projects</span>
-                    </a></li>
-                    <li><a class="nav-link" href="#education" title="Education">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="m22 10-10-5L2 10l10 5 10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="m6 12 5 2.5 5-2.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12 22.5V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span class="nav-text">Education</span>
-                    </a></li>
-                    <li><a class="nav-link" href="#notable-achievements" title="Achievements">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7.5 3.375c0-1.036.84-1.875 1.875-1.875S11.25 2.34 11.25 3.375s-.84 1.875-1.875 1.875S7.5 4.41 7.5 3.375zM3.75 6.75a.75.75 0 0 0-.75.75v6c0 3.314 2.686 6 6 6s6-2.686 6-6v-6a.75.75 0 0 0-.75-.75h-10.5zM15 12.75a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="12" cy="8" r="1.5" fill="currentColor"/>
-                        </svg>
-                        <span class="nav-text">Achievements</span>
-                    </a></li>
-                    <li><a class="nav-link" href="#contact" title="Contact">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span class="nav-text">Contact</span>
-                    </a></li>
-                </ul>
-            </nav>
-            
-            <!-- Contact Icons at bottom of sidebar -->
-            <div class="sidebar-contacts">
-                <a id="contact-linkedin" class="contact-icon" href="https://" title="LinkedIn" target="_blank">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-                <a id="contact-github" class="contact-icon" href="https://" title="GitHub" target="_blank">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-                <a id="contact-instagram" class="contact-icon" href="https://" title="Instagram" target="_blank">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor" stroke-width="2"/>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                </a>
-                <a id="contact-facebook" class="contact-icon" href="https://" title="Facebook" target="_blank">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-            </div>
-        </aside>
-
-        <main class="main-content">
-            <div class="content-wrapper">
-                    <!-- Header -->
-                    <header id="header" class="site-header hero-section">
-                        <div class="hero-glow"></div>
-                        <div class="hero-content">
-                            <div class="hero-left">
-                                <p class="hero-role" id="title">Full Stack Developer</p>
-                                <h1 class="hero-name" id="name">Your name</h1>
-                                <div id="chips" class="hero-chips"></div>
-                                <a id="resume-link" class="hero-cv-btn" href="https://drive.google.com/uc?export=download&id=1kTv6LPN5LXq1c50V1BPZNCJeAasim88a" download>Download CV</a>
+        <main class="main-content min-h-screen w-full px-4 py-4 sm:px-6 lg:ml-20 lg:px-10">
+            <div class="content-wrapper mx-auto w-full max-w-[1120px]">
+                <!-- Header -->
+                <header id="header" class="site-header hero-section relative flex flex-col items-center justify-center overflow-hidden py-16 lg:min-h-[calc(100vh-3.5rem)] lg:py-0">
+                    <div class="hero-content relative z-10 flex w-full max-w-[720px] flex-col items-center justify-center gap-5">
+                        <div class="hero-left flex flex-col items-center gap-4 text-center">
+                            <span class="hero-reveal hero-role m-0 font-display text-sm font-semibold uppercase tracking-[0.25em] text-indigo-700 lg:text-base" id="tagline">Hi, I'm</span>
+                            <h1 class="hero-reveal hero-name m-0 font-display font-extrabold leading-[0.95] tracking-tight text-slate-900 text-[clamp(2.4rem,10vw,4.2rem)] lg:text-[clamp(3rem,7vw,6.5rem)]" id="name">Your name</h1>
+                            <p class="hero-reveal hero-subtitle m-0 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg" id="hero-subtitle"></p>
+                            <div id="chips" class="hero-reveal hero-chips flex flex-wrap items-center justify-center gap-2 lg:gap-2.5"></div>
+                            <div class="hero-reveal hero-actions mt-1 flex flex-wrap items-center justify-center gap-3">
+                                <a id="resume-link" class="hero-cv-btn rounded-full bg-indigo-700 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-indigo-200 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-indigo-300" href="https://drive.google.com/uc?export=download&id=1VxlAFv3PGP4LTTbJOiznqtJsbp8-IHgf" download>Download CV</a>
+                                <a href="#contact" class="rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-bold text-slate-700 transition-all hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-800">Contact Me</a>
                             </div>
                         </div>
+                    </div>
+                    <a href="#about" class="hero-scroll absolute bottom-6 left-1/2 hidden -translate-x-1/2 text-slate-400 transition-colors hover:text-indigo-700 lg:block" aria-label="Scroll to about">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14m-6-6 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </header>
 
-                        <div class="hero-image-wrap" aria-hidden="true">
-                            <img id="hero-fullbody" class="hero-image" src="images/fullbody.png" width="900" height="1400" fetchpriority="high" decoding="async" alt="Full body portrait" />
-                        </div>
-                    </header>
+                <hr class="my-6 border-slate-200" />
 
-                    <hr />
+                <!-- About -->
+                <section id="about" class="reveal py-6 lg:py-12">
+                    <h2 class="m-0 font-display text-2xl font-bold text-slate-900 lg:text-4xl">About</h2>
+                    <div class="mt-3 h-1 w-16 rounded-full bg-indigo-700"></div>
+                    <p class="mt-6 mb-0 text-justify leading-relaxed text-slate-600" id="about-text">About text</p>
+                </section>
 
-                    <!-- About -->
-                    <section id="about" class="py-4">
-                        <h2 class="h5 fw-bold">About</h2>
-                        <p class="mb-0" id="about-text">About text</p>
-                    </section>
+                <!-- Experience -->
+                <section id="experience" class="reveal py-6 lg:py-12">
+                    <h2 class="m-0 font-display text-2xl font-bold text-slate-900 lg:text-4xl">Experiences</h2>
+                    <div class="mt-3 h-1 w-16 rounded-full bg-indigo-700"></div>
+                    <div id="experience-list" class="mt-6"></div>
+                </section>
 
-                    <!-- Experience -->
-                    <section id="experience" class="py-4">
-                        <h2 class="h5 fw-bold">Experiences</h2>
-                        <div id="experience-list" class="mt-3"></div>
-                    </section>
+                <!-- Certificates -->
+                <section id="certificates" class="reveal py-6 lg:py-12">
+                    <h2 class="m-0 font-display text-2xl font-bold text-slate-900 lg:text-4xl">Certificates</h2>
+                    <div class="mt-3 h-1 w-16 rounded-full bg-indigo-700"></div>
+                    <div class="mt-6 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
+                        <p class="mb-0 text-slate-500">Credentials, trainings, and certifications I've earned.</p>
+                        <a href="certificates.html" class="inline-flex items-center gap-2 rounded-full bg-indigo-700 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-indigo-800 hover:shadow-lg">
+                            View All Certificates
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div id="certificates-carousel" class="relative mt-4" aria-label="Certificates carousel">
+                        <button id="certificates-carousel-prev" type="button" aria-label="Previous certificates" class="absolute left-0 top-1/2 z-10 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-md transition hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="m15 18-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div id="certificates-carousel-track" class="no-scrollbar relative flex snap-x snap-mandatory overflow-x-auto px-12 py-1"></div>
+                        <button id="certificates-carousel-next" type="button" aria-label="Next certificates" class="absolute right-0 top-1/2 z-10 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-md transition hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
 
-                    <!-- Skills -->
-                    <section id="skills" class="py-4">
-                        <h2 class="h5 fw-bold">Skills</h2>
-                        <div id="skills-list" class="mt-3"></div>
-                    </section>
+                <!-- Skills -->
+                <section id="skills" class="reveal py-6 lg:py-12">
+                    <h2 class="m-0 font-display text-2xl font-bold text-slate-900 lg:text-4xl">Skills</h2>
+                    <div class="mt-3 h-1 w-16 rounded-full bg-indigo-700"></div>
+                    <div id="skills-list" class="mt-6"></div>
+                </section>
 
-                    <!-- Projects -->
-                    <section id="projects" class="py-4">
-                        <h2 class="h5 fw-bold">Projects</h2>
-                        <div id="projects-grid" class="mt-3 row g-3"></div>
-                    </section>
+                <!-- Projects (featured carousel) -->
+                <section id="projects" class="reveal py-6 lg:py-12">
+                    <h2 class="m-0 font-display text-2xl font-bold text-slate-900 lg:text-4xl">Projects</h2>
+                    <div class="mt-3 h-1 w-16 rounded-full bg-indigo-700"></div>
+                    <div class="mt-6 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
+                        <p class="mb-0 text-slate-500">A selection of my featured work.</p>
+                        <a href="projects.html" class="inline-flex items-center gap-2 rounded-full bg-indigo-700 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-indigo-800 hover:shadow-lg">
+                            View All Projects
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div id="projects-carousel" class="relative mt-4" aria-label="Featured projects carousel">
+                        <button id="projects-carousel-prev" type="button" aria-label="Previous projects" class="absolute left-0 top-1/2 z-10 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-md transition hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="m15 18-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div id="projects-carousel-track" class="no-scrollbar relative flex snap-x snap-mandatory overflow-x-auto px-12 py-1"></div>
+                        <button id="projects-carousel-next" type="button" aria-label="Next projects" class="absolute right-0 top-1/2 z-10 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-md transition hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
 
-                    <!-- Education -->
-                    <section id="education" class="py-4">
-                        <h2 class="h5 fw-bold">Education</h2>
-                        <div id="education-list" class="mt-3"></div>
-                    </section>
-                    
-                    <!-- Notable Achievements -->
-                    <section id="notable-achievements" class="py-4">
-                        <h2 class="h5 fw-bold">Achievements</h2>
-                        <div id="notable-achievements-list" class="mt-3"></div>
-                    </section>
+                <!-- Education -->
+                <section id="education" class="reveal py-6 lg:py-12">
+                    <h2 class="m-0 font-display text-2xl font-bold text-slate-900 lg:text-4xl">Education</h2>
+                    <div class="mt-3 h-1 w-16 rounded-full bg-indigo-700"></div>
+                    <div id="education-list" class="mt-6"></div>
+                </section>
 
-                    <!-- Contact Form -->
-                    <section id="contact" class="py-4">
-                        <h2 class="h5 fw-bold">Contact</h2>
-                        <p class="text-muted mb-4">Have a question or want to work together? Send me a message!</p>
-                        
-                        <form id="contact-form" class="contact-form">
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="contact-name" class="form-label">Name</label>
-                                    <input type="text" class="form-control" id="contact-name" name="name" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="contact-email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="contact-email" name="email" required>
-                                </div>
-                                <div class="col-12">
-                                    <label for="contact-subject" class="form-label">Subject</label>
-                                    <input type="text" class="form-control" id="contact-subject" name="subject" required>
-                                </div>
-                                <div class="col-12">
-                                    <label for="contact-message" class="form-label">Message</label>
-                                    <textarea class="form-control" id="contact-message" name="message" rows="5" required></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">
-                                        <span class="btn-text">Send Message</span>
-                                        <span class="btn-loading d-none">
-                                            <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                                            Sending...
-                                        </span>
-                                    </button>
-                                </div>
+                <!-- Notable Achievements -->
+                <section id="notable-achievements" class="reveal py-6 lg:py-12">
+                    <h2 class="m-0 font-display text-2xl font-bold text-slate-900 lg:text-4xl">Achievements</h2>
+                    <div class="mt-3 h-1 w-16 rounded-full bg-indigo-700"></div>
+                    <div id="notable-achievements-list" class="mt-6"></div>
+                </section>
+
+                <!-- Contact Form -->
+                <section id="contact" class="reveal py-6 lg:py-12">
+                    <h2 class="m-0 font-display text-2xl font-bold text-slate-900 lg:text-4xl">Contact</h2>
+                    <div class="mt-3 h-1 w-16 rounded-full bg-indigo-700"></div>
+                    <p class="mt-6 mb-4 text-slate-500">Have a question or want to work together? Send me a message!</p>
+
+                    <form id="contact-form" class="contact-form rounded-xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                            <div>
+                                <label for="contact-name" class="form-label mb-2 block text-sm font-medium text-slate-700">Name</label>
+                                <input type="text" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100" id="contact-name" name="name" required>
                             </div>
-                        </form>
-                        
-                        <div id="contact-success" class="alert alert-success mt-3 d-none">
-                            <i class="fas fa-check-circle me-2"></i>
-                            Thank you! Your message has been sent successfully. I'll get back to you soon.
+                            <div>
+                                <label for="contact-email" class="form-label mb-2 block text-sm font-medium text-slate-700">Email</label>
+                                <input type="email" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100" id="contact-email" name="email" required>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label for="contact-subject" class="form-label mb-2 block text-sm font-medium text-slate-700">Subject</label>
+                                <input type="text" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100" id="contact-subject" name="subject" required>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label for="contact-message" class="form-label mb-2 block text-sm font-medium text-slate-700">Message</label>
+                                <textarea class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100" id="contact-message" name="message" rows="5" required></textarea>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <button type="submit" class="inline-flex items-center gap-2 rounded-lg bg-indigo-700 px-8 py-3 font-medium text-white transition hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+                                    <span class="btn-text">Send Message</span>
+                                    <span class="btn-loading hidden items-center gap-2">
+                                        <span class="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" role="status" aria-hidden="true"></span>
+                                        Sending...
+                                    </span>
+                                </button>
+                            </div>
                         </div>
-                        
-                        <div id="contact-error" class="alert alert-danger mt-3 d-none">
-                            <i class="fas fa-exclamation-circle me-2"></i>
-                            Sorry, there was an error sending your message. Please try again or contact me directly.
-                        </div>
-                    </section>
+                    </form>
 
-                    <hr />
-                    <footer id="footer" class="py-3 text-center text-muted">© <span id="footer-year">2025</span> <span id="footer-name">Your Name</span></footer>
-                </div>
-            </main>
+                    <div id="contact-success" class="mt-3 hidden flex items-center gap-2 rounded-lg border border-indigo-200 bg-indigo-50 p-4 text-indigo-700">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="m22 4-10 10.01-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Thank you! Your message has been sent successfully. I'll get back to you soon.
+                    </div>
 
-        <!-- Bootstrap 5 JS + Popper (CDN) -->
-        <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalTitle" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content project-modal-content">
-                    <div class="modal-header project-modal-header">
-                        <h5 class="modal-title" id="projectModalTitle">Project</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div id="contact-error" class="mt-3 hidden flex items-center gap-2 rounded-lg border border-red-200 bg-red-50 p-4 text-red-700">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="12" y1="16" x2="12.01" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Sorry, there was an error sending your message. Please try again or contact me directly.
                     </div>
-                    <div class="modal-body project-modal-body">
-                        <div class="project-modal-image-wrap">
-                            <img id="projectModalImage" class="project-modal-image d-none" alt="Project preview" />
-                        </div>
-                        <p id="projectModalDescription" class="mb-3"></p>
-                        <div id="projectModalLanguages" class="project-modal-languages mb-3"></div>
-                        <div class="project-modal-actions">
-                            <a id="projectModalRepo" class="project-modal-btn" href="#" target="_blank" rel="noopener noreferrer">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                <span>Repository</span>
-                            </a>
-                            <a id="projectModalLive" class="project-modal-btn" href="#" target="_blank" rel="noopener noreferrer">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <path d="M14 3h7v7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M21 3l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M20 14v4a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                <span>Live Site</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                </section>
+
+                <hr class="my-6 border-slate-200" />
+                <div id="footer-root"></div>
             </div>
-        </div>
+        </main>
 
-        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <div id="modal-root"></div>
+
+        <script defer src="layout.js"></script>
         <script defer src="main.js"></script>
     </body>
 </html>

@@ -1,9 +1,10 @@
 {
   "name": "Jhon Mcneil Magtibay",
   "title": "Full Stack Developer",
-  "avatar": "images/ID_pic.jpg",
-  "full-body-pic": "images/fullbody.png",
-  "about": "Hi! I'm Mcneil, a full-stack developer focused on backend development. I build efficient, scalable, and secure server-side applications while keeping the front-end experience smooth and reliable. I enjoy solving complex problems and creating systems that are practical and easy to use.",
+  "tagline": "Hi, I'm",
+  "subtitle": "A Full Stack Developer focused on building scalable, secure backend systems and clean, reliable web experiences.",
+  "location": "Batangas, Philippines",
+  "about": "Hi! I'm Mcneil, a full-stack developer focused on backend development. I build efficient, scalable, and secure server-side applications while keeping the front-end experience smooth and reliable. I enjoy solving complex problems and creating systems that are practical and easy to use. I'm currently focused on improving my development skills by building projects with different programming languages and frameworks. Along the way, I'm learning web and mobile application development while exploring a future career in AI. I'm particularly interested in artificial intelligence and computer systems, and I enjoy understanding not just how to build software, but how the technologies behind it work. I believe the best way to grow as a developer is through hands-on experience, continuous learning, and taking on projects that push me beyond my comfort zone.",
   "education": [
     {
       "degree": "Bachelor of Science in Information Technology major in Business Analytics",
@@ -17,8 +18,8 @@
       "details": "Graduated with High Honors"
     }
   ],
-  "chips": ["Web Development", "Backend Development", "Frontend Development"],
-  "skills": ["Angular", "Nodejs", "Java", "Responsive UI", "JavaScript", "HTML", "CSS", "MySQL", "Python"],
+  "chips": ["Web Development", "Backend Development", "Frontend Development", "Mobile Development"],
+  "skills": ["Angular", "Nodejs", "Java", "Flutter", "JavaScript", "HTML", "CSS", "MySQL", "Python"],
   "experiences": [
     {
       "position": "Backend Developer Intern",
@@ -31,11 +32,18 @@
       "company": "Mabini.js",
       "duration": "December 2025 - February 2026",
       "description": "Competed in the 1st Mayoral Hackathon organized by the Naga City Local Government. Developed a web application using React Native, achieving top 5 finalist in the category of health among 100+ teams that participated in the hackathon."
+    },
+    {
+      "position": "Full Stack Developer / Co-Founder",
+      "company": "CONEXUS",
+      "duration": "September 2025 - Present",
+      "description": "Co-founded a startup focused on providing innovative solutions for local businesses. Leading the development of web and mobile applications, ensuring high performance and user-friendly interfaces."
     }
   ],
   "projects": [
     {
       "title": "Tourism Website",
+      "featured": true,
       "description": "Tourism website showcasing destinations and travel packages.",
       "languages": ["HTML", "CSS", "JavaScript", "Bootstrap"],
       "repository": "https://github.com/JhonMcFrost/Tourism",
@@ -44,6 +52,7 @@
     },
     {
       "title": "Oh Crepe!: E-commerce Website",
+      "featured": true,
       "description": "E-commerce website for a fictional crepe shop with responsive product pages.",
       "languages": ["Angular", "TypeScript", "CSS", "Node.js", "JavaScript"],
       "repository": "https://github.com/JhonMcFrost/Oh-crepe-",
@@ -52,6 +61,7 @@
     },
     {
       "title": "CRUD Student Management System",
+      "featured": true,
       "description": "Web application for managing student records with full CRUD operations.",
       "languages": ["Angular", "TypeScript", "JSON Server"],
       "repository": "https://github.com/JhonMcFrost/student_management_system",
@@ -59,6 +69,7 @@
     },
     {
       "title": "VaultX ATM CLI Process",
+      "featured": true,
       "description": "Command-line ATM transaction simulator built with Java and MySQL.",
       "languages": ["Java", "MySQL"],
       "repository": "https://github.com/JhonMcFrost/ATM_process",
@@ -92,10 +103,61 @@
     },
     {
       "title": "Simple Sign Language Detection",
+      "featured": true,
       "description": "Machine learning project that detects and interprets sign language gestures.",
       "languages": ["Python"],
       "repository": "https://github.com/JhonMcFrost/Simple-Sign-Language-Detection",
       "image": "images/projects/signlanguage.png"
+    }
+  ],
+  "certificates": [
+    {
+      "title": "Computer System Servicing NC II",
+      "issuer": "TESDA",
+      "year": "2023",
+      "description": "National Certificate II for Computer System Servicing.",
+      "image": "",
+      "credentialUrl": ""
+    },
+    {
+      "title": "Learning Express Program (LeX 2025)",
+      "issuer": "BatState-U TNEU × Singapore Polytechnic",
+      "year": "2025",
+      "description": "Participated in LeX 2025: Global to Local Community Engagement.",
+      "image": "",
+      "credentialUrl": ""
+    },
+    {
+      "title": "GINHAWA A Student Well-Being Summit: Inspiring Wellness, Leadership, and Purpose in Higher Education.",
+      "issuer": "Commission on Higher Education (CHED)",
+      "year": "2026",
+      "description": "Participated in the GINHAWA Student Well-Being Summit.",
+      "image": "",
+      "credentialUrl": ""
+    },
+    {
+      "title": "AI Class ASEAN",
+      "issuer": "ASEAN Foundation",
+      "year": "2026",
+      "description": "Successfully completed the AI Class ASEAN program, gaining knowledge in artificial intelligence and its applications.",
+      "image": "",
+      "credentialUrl": ""
+    },
+    {
+      "title": "AI Fundamentals: Foundations for Understanding AI",
+      "issuer": "Cisco Networking Academy",
+      "year": "2026",
+      "description": "Learned the fundamentals of artificial intelligence and its applications.",
+      "image": "https://drive.google.com/file/d/1OMB6dbj8lidkvLSkJ9lWw_-nhndOKUyd/view?usp=drive_link",
+      "credentialUrl": ""
+    },
+    {
+      "title": "Introduction to Modern AI",
+      "issuer": "Cisco Networking Academy",
+      "year": "2026",
+      "description": "Completed the IBM Skillbuild course on Introduction to Modern AI, gaining insights into AI concepts and applications.",
+      "image": "",
+      "credentialUrl": ""
     }
   ],
   "notableAchievements": [
