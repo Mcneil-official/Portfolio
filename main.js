@@ -295,7 +295,7 @@ function openCertModal(cert) {
   const desc = document.getElementById('certModalDesc');
 
   if (title) title.textContent = cert.title || 'Certificate';
-  if (issuer) issuer.textContent = [cert.issuer, cert.year].filter(Boolean).join(' â€¢ ');
+  if (issuer) issuer.textContent = [cert.issuer, cert.year].filter(Boolean).join(' • ');
   if (desc) desc.textContent = cert.description || '';
 
   if (pdf) {
@@ -349,7 +349,7 @@ function createCertificateCard(cert) {
   const body = document.createElement('div');
   body.className = 'flex flex-1 flex-col p-4';
   const h = el('h3', 'mb-1 text-base font-semibold text-slate-900', cert.title || '');
-  const meta = el('p', 'mb-0 text-sm text-slate-500', [cert.issuer, cert.year].filter(Boolean).join(' â€¢ '));
+  const meta = el('p', 'mb-0 text-sm text-slate-500', [cert.issuer, cert.year].filter(Boolean).join(' • '));
   body.appendChild(h);
   body.appendChild(meta);
   item.appendChild(body);
@@ -573,7 +573,7 @@ async function loadData(){
         content.className = 'flex-1';
         const title = el('h3','mb-1 text-base font-semibold text-slate-900', achievement.title || '');
         const metaParts = [achievement.type, achievement.organization, achievement.year].filter(Boolean);
-        const meta = el('p','mb-1 text-sm font-medium text-slate-700', metaParts.join(' â€¢ '));
+        const meta = el('p','mb-1 text-sm font-medium text-slate-700', metaParts.join(' • '));
         const description = el('p','mb-0 text-sm text-slate-500', achievement.description || '');
         content.appendChild(title);
         if (metaParts.length) content.appendChild(meta);
