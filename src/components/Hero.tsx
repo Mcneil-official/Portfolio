@@ -1,6 +1,5 @@
 import React from 'react';
 import { PortfolioData } from '../types';
-import fullbodyPhoto from '../../images/fullbody.png';
 
 interface HeroProps {
   data: PortfolioData;
@@ -65,7 +64,7 @@ export const Hero: React.FC<HeroProps> = ({ data, onProjectsClick }) => {
             {/* Clean Static Circular Container */}
             <div className="rounded-full w-full h-full bg-gradient-to-tr from-slate-200 via-indigo-50 to-indigo-100/70 overflow-hidden shadow-inner flex items-center justify-center p-2">
               <img
-                src={fullbodyPhoto || '/images/fullbody.png'}
+                src="/images/fullbody.png"
                 alt={data.name || 'Profile portrait'}
                 className="w-full h-full object-cover object-[100%_40%] scale-125 rounded-full"
                 onError={(e) => {
