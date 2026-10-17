@@ -1,123 +1,102 @@
 # Jhon Mcneil Magtibay Portfolio
 
-A responsive multi-page developer portfolio with a light theme, built with HTML, Tailwind CSS, and vanilla JavaScript.
+A modern, responsive developer portfolio with a clean light theme, rewritten as a modern **React + TypeScript + Vite** application with Tailwind CSS.
 
-The app is data-driven: content is loaded from `data.json` and rendered by `main.js`, so you can update most portfolio details without editing HTML.
+The application is completely data-driven: content is loaded from `data.json` (with Google Drive Apps Script dynamic source and robust local fallback), allowing instant customization of portfolio details without modifying code.
 
-## Pages
-- `index.html` — homepage with hero, about, experience, skills, featured projects carousel, education, achievements, and contact form.
-- `projects.html` — full grid of all projects.
-- `certificates.html` — certificates grid with a lightbox modal.
+## Views & Features
+- **Home View**:
+  - Hero section with role tagline, name, subtitle, tech chips, direct resume download, and contact button.
+  - About section with detailed developer profile.
+  - Experiences section with company, position, duration, and descriptions.
+  - Featured Certificates carousel with responsive horizontal scrolling and modal view.
+  - Skills section categorized into Languages, Frameworks, and Databases with authentic tech SVG logos.
+  - Featured Projects carousel with responsive horizontal track, keyboard controls, and detail dialog.
+  - Education history timeline with honors and credentials.
+  - Notable Achievements and leadership roles.
+  - Working Contact Form integrated with FormSubmit.co, including loading spinners, success confirmation, and error alerts.
+- **All Projects View**:
+  - Grid view of all projects with dynamic category/language filtering.
+  - Detailed project modal with tech stack badges, repository link, and live site link.
+- **Certifications View**:
+  - Grid view of all certificates with issuer filters.
+  - Certificate modal supporting Google Drive PDF previews, images, and credential links.
+- **Navigation & Layout**:
+  - Sleek desktop sidebar (w-20) with active section scrollspy.
+  - Responsive mobile drawer navigation with animated hamburger toggle.
+  - Floating Back-to-Top button.
+  - Smooth initial loading indicator.
 
 ## Tech Stack
-- HTML5
-- Tailwind CSS 3 (compiled via npm CLI)
-- Vanilla JavaScript
-- Native HTML `<dialog>` for the project/certificate modals
+- **React 19**
+- **TypeScript**
+- **Vite**
+- **Tailwind CSS 3**
+- **FormSubmit.co** (Contact form processing)
 
 ## Project Structure
 ```text
 Portfolio/
-|- index.html
-|- projects.html
-|- certificates.html
-|- layout.js           (shared sidebar/loader/footer/modal chrome)
-|- main.js
-|- data.json
-|- input.css
-|- tailwind.config.js
-|- package.json
-|- styles.css          (compiled Tailwind output — committed for static hosting)
-|- images/
-    |- fullbody.png
-    |- fullbody-optimized.png
-    |- projects/
+├── public/
+│   ├── data.json
+│   └── images/
+│       └── projects/
+├── src/
+│   ├── components/
+│   │   ├── icons/
+│   │   │   ├── NavIcons.tsx
+│   │   │   └── TechIcons.tsx
+│   │   ├── AboutSection.tsx
+│   │   ├── AchievementsSection.tsx
+│   │   ├── BackToTop.tsx
+│   │   ├── CertificateCard.tsx
+│   │   ├── CertificateModal.tsx
+│   │   ├── CertificatesCarousel.tsx
+│   │   ├── ContactSection.tsx
+│   │   ├── EducationSection.tsx
+│   │   ├── ExperienceSection.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Hero.tsx
+│   │   ├── PageLoader.tsx
+│   │   ├── ProjectCard.tsx
+│   │   ├── ProjectModal.tsx
+│   │   ├── ProjectsCarousel.tsx
+│   │   ├── Sidebar.tsx
+│   │   └── SkillsSection.tsx
+│   ├── data/
+│   │   └── fallbackData.ts
+│   ├── utils/
+│   │   └── driveUrls.ts
+│   ├── views/
+│   │   ├── CertificatesView.tsx
+│   │   ├── HomeView.tsx
+│   │   └── ProjectsView.tsx
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   └── types.ts
+├── index.html
+├── metadata.json
+├── package.json
+├── tailwind.config.js
+├── tsconfig.json
+└── vite.config.ts
 ```
 
-## Sections Included
-- Hero
-- About
-- Experience
-- Skills
-- Projects (featured carousel on home, full grid on `projects.html`)
-- Education
-- Achievements
-- Certificates (on `certificates.html`)
-- Contact Form
+## Getting Started
 
-## Local Development
-
-### 1. Build Tailwind CSS (after first clone or when classes change)
-```powershell
-cd "C:\Users\Jhon Mcneil Magtibay\Desktop\Try\Portfolio"
+### Development
+```bash
 npm install
+npm run dev
+```
+Starts the Vite dev server on `http://localhost:3000`.
+
+### Production Build
+```bash
 npm run build
 ```
-
-### 2. Serve the site (so `fetch('data.json')` works correctly)
-```powershell
-python -m http.server 8000
-```
-
-Then open:
-- `http://localhost:8000`
-
-During development you can watch for changes:
-```powershell
-npm run watch
-```
-
-## Customize Content (`data.json`)
-You can edit these keys safely:
-- `name`, `title`, `about`
-- `full-body-pic`, `avatar`
-- `chips[]`
-- `skills[]`
-- `experiences[]`
-- `education[]`
-- `projects[]` (add `"featured": true` to a project to include it in the homepage carousel)
-- `certificates[]`
-- `notableAchievements[]`
-- `contact` (email/social links)
-
-### Project Object Example
-```json
-{
-	"title": "Project Name",
-	"description": "Short summary",
-	"languages": ["JavaScript", "Node.js"],
-	"repository": "https://github.com/username/repo",
-	"deployment": "https://your-demo-url.com",
-	"image": "images/projects/project-image.png",
-	"featured": true
-}
-```
-
-### Certificate Object Example
-```json
-{
-	"title": "Certificate Title",
-	"issuer": "Organization",
-	"year": "2025",
-	"description": "Short summary",
-	"image": "https://example.com/certificate.png",
-	"credentialUrl": "https://example.com/verify"
-}
-```
-
-## Performance Notes
-- Hero image is preloaded in `index.html`.
-- Loader behavior is handled in `main.js`.
-- `styles.css` is compiled with `--minify` and committed so GitHub Pages works without a build step.
-- If you change Tailwind classes, run `npm run build` to regenerate `styles.css`.
-
-## Deployment
-You can deploy this as a static site using:
-- GitHub Pages
-- Netlify
-- Vercel
-
-After deployment, update canonical/social metadata in `index.html` to use your final production URL.
+Generates production build in `dist/`.
 
 ## License
 Personal portfolio project. Reuse structure with attribution.

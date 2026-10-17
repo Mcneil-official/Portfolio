@@ -4,10 +4,23 @@
   "description": "Light-themed developer portfolio built with Tailwind CSS",
   "private": true,
   "scripts": {
-    "build": "tailwindcss -i input.css -o styles.css --minify",
-    "watch": "tailwindcss -i input.css -o styles.css --watch"
+    "dev": "vite --host 0.0.0.0 --port 3000",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 3000",
+    "lint": "tsc --noEmit"
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.17"
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "autoprefixer": "^10.6.1",
+    "postcss": "^8.5.30",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4"
+  },
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   }
 }

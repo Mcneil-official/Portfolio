@@ -1,0 +1,256 @@
+import { PortfolioData } from '../types';
+
+export const fallbackPortfolioData: PortfolioData = {
+  name: "Jhon Mcneil Magtibay",
+  title: "Full Stack Developer",
+  tagline: "Hi, I'm",
+  subtitle: "A Full Stack Developer focused on building scalable, secure backend systems and clean, reliable web experiences.",
+  location: "Batangas, Philippines",
+  about: "Hi! I'm Mcneil, a full-stack developer focused on backend development. I build efficient, scalable, and secure server-side applications while keeping the front-end experience smooth and reliable. I enjoy solving complex problems and creating systems that are practical and easy to use. I'm currently focused on improving my development skills by building projects with different programming languages and frameworks. Along the way, I'm learning web and mobile application development while exploring a future career in AI. I'm particularly interested in artificial intelligence and computer systems, and I enjoy understanding not just how to build software, but how the technologies behind it work. I believe the best way to grow as a developer is through hands-on experience, continuous learning, and taking on projects that push me beyond my comfort zone.",
+  education: [
+    {
+      degree: "Bachelor of Science in Information Technology major in Business Analytics",
+      institution: "Batangas State University The National Engineering School - Mabini Campus",
+      year: "2023 - Present"
+    },
+    {
+      degree: "Senior High School - ICT Strand",
+      institution: "Anselmo A. Sandoval Memorial National High School",
+      year: "2021 - 2023",
+      details: "Graduated with High Honors"
+    }
+  ],
+  chips: ["Web Development", "Backend Development", "Frontend Development", "Mobile Development"],
+  skills: ["Angular", "Nodejs", "Java", "Flutter", "JavaScript", "HTML", "CSS", "MySQL", "Python", "React Native", "TypeScript", "PostgreSQL", "Spring Boot"],
+  experiences: [
+    {
+      position: "Full Stack Developer / Co-Founder",
+      company: "CONEXUS",
+      duration: "September 2025 - Present",
+      description: "Co-founded a startup focused on providing innovative solutions for local businesses. Leading the development of web and mobile applications, ensuring high performance and user-friendly interfaces."
+    },
+    {
+      position: "Backend Developer Intern",
+      company: "Stockout",
+      duration: "May 2025 - June 2025",
+      description: "Developing e-commerce web applications using Node.js and Express. Collaborated with frontend developers to integrate APIs and ensure seamless data flow."
+    }
+  ],
+  projects: [
+    {
+      title: "Tourism Website",
+      featured: true,
+      description: "Tourism website showcasing destinations and travel packages.",
+      languages: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+      repository: "https://github.com/JhonMcFrost/Tourism",
+      deployment: "https://tourism-swart-zeta.vercel.app/",
+      image: "images/projects/tourism.png"
+    },
+    {
+      title: "Oh Crepe!: E-commerce Website",
+      featured: true,
+      description: "E-commerce website for a fictional crepe shop with responsive product pages.",
+      languages: ["Angular", "TypeScript", "CSS", "Node.js", "JavaScript"],
+      repository: "https://github.com/JhonMcFrost/Oh-crepe-",
+      deployment: "https://oh-crepe-seven.vercel.app/",
+      image: "images/projects/ohcrepe.png"
+    },
+    {
+      title: "CRUD Student Management System",
+      featured: true,
+      description: "Web application for managing student records with full CRUD operations.",
+      languages: ["Angular", "TypeScript", "JSON Server"],
+      repository: "https://github.com/JhonMcFrost/student_management_system",
+      image: "images/projects/studentmanagement.png"
+    },
+    {
+      title: "VaultX ATM CLI Process",
+      featured: true,
+      description: "Command-line ATM transaction simulator built with Java and MySQL.",
+      languages: ["Java", "MySQL"],
+      repository: "https://github.com/JhonMcFrost/ATM_process",
+      image: "images/projects/vaultx.png"
+    },
+    {
+      title: "Pathpickr",
+      description: "Student track recommendation website that suggests suitable study paths.",
+      languages: ["HTML", "CSS", "Java", "JavaScript"],
+      repository: "https://github.com/JhonMcFrost/PathPickr",
+      image: "images/projects/pathpickr.png"
+    },
+    {
+      title: "Simple Sign Language Detection",
+      featured: true,
+      description: "Machine learning project that detects and interprets sign language gestures.",
+      languages: ["Python"],
+      repository: "https://github.com/JhonMcFrost/Simple-Sign-Language-Detection",
+      image: "images/projects/signlanguage.png"
+    },
+    {
+      title: "AvesQuest",
+      description: "AvesQuest is a mobile bird identification and collection journal. Snap a photo of a bird, let AI identify it, and build your personal BirdDex collection.",
+      languages: ["Flutter"],
+      repository: "https://github.com/Mcneil-official/AvesQuest",
+      image: "images/projects/AvesQuest.jpg"
+    }
+  ],
+  certificates: [
+    {
+      title: "Computer System Servicing NC II",
+      issuer: "TESDA",
+      year: "2023",
+      description: "National Certificate II for Computer System Servicing.",
+      image: "",
+      credentialUrl: ""
+    },
+    {
+      title: "Learning Express Program (LeX 2025)",
+      issuer: "BatState-U TNEU × Singapore Polytechnic",
+      year: "2025",
+      description: "Participated in LeX 2025: Global to Local Community Engagement.",
+      image: "",
+      credentialUrl: "https://drive.google.com/file/d/1Lh8Yp3y3pD0iO-1RgTvWVh4fNM6iz4I6/view?usp=drive_link"
+    },
+    {
+      title: "GINHAWA A Student Well-Being Summit: Inspiring Wellness, Leadership, and Purpose in Higher Education.",
+      issuer: "Commission on Higher Education (CHED)",
+      year: "2026",
+      description: "Participated in the GINHAWA Student Well-Being Summit.",
+      image: "",
+      credentialUrl: "https://drive.google.com/file/d/1nvgvaYb5gcFc_0643buzKBMCbkAV-h0I/view?usp=drive_link"
+    },
+    {
+      title: "AI Class ASEAN",
+      issuer: "ASEAN Foundation",
+      year: "2026",
+      description: "Successfully completed the AI Class ASEAN program, gaining knowledge in artificial intelligence and its applications.",
+      image: "",
+      credentialUrl: "https://drive.google.com/file/d/1eJbWHWw4GzqKy1rfie8TeYKfj8r7Ojy1/view?usp=drive_link"
+    },
+    {
+      title: "AI Fundamentals: Foundations for Understanding AI",
+      issuer: "Cisco Networking Academy",
+      year: "2026",
+      description: "Learned the fundamentals of artificial intelligence and its applications.",
+      image: "",
+      credentialUrl: "https://drive.google.com/file/d/1OMB6dbj8lidkvLSkJ9lWw_-nhndOKUyd/view?usp=drive_link"
+    },
+    {
+      title: "AI Fundamentals: Language and Vision in AI",
+      issuer: "Cisco Networking Academy",
+      year: "2026",
+      description: "Learned the fundamentals of language and vision in artificial intelligence.",
+      image: "",
+      credentialUrl: "https://drive.google.com/file/d/1tsMqQ8Ce7uhFnfLr76IsRe4e5VArANWx/view?usp=drive_link"
+    },
+    {
+      title: "Introduction to Modern AI",
+      issuer: "Cisco Networking Academy",
+      year: "2026",
+      description: "Completed the IBM Skillbuild course on Introduction to Modern AI, gaining insights into AI concepts and applications.",
+      image: "",
+      credentialUrl: "https://drive.google.com/file/d/1_b2aXIjpZannBMhQkmhq26WCF-KPmhL8/view?usp=drive_link"
+    },
+    {
+      title: "AI Fundamentals",
+      issuer: "Google (Coursera)",
+      year: "2026",
+      description: "Learned the practical applications of artificial intelligence.",
+      image: "",
+      credentialUrl: "https://drive.google.com/file/d/1MXRwQkUuYT1SdebV4npAO6mrwTN3ukfU/view?usp=drive_link"
+    },
+    {
+      title: "AI for Brainstorming and Planning",
+      issuer: "Google (Coursera)",
+      year: "2026",
+      description: "Learned how to use AI for brainstorming and planning purposes.",
+      image: "",
+      credentialUrl: "https://drive.google.com/file/d/1KTaWO84Q25Kq6uIxxNNqwKmuzuluOuaU/view?usp=drive_link"
+    },
+    {
+      title: "AI for Research and Insights",
+      issuer: "Google (Coursera)",
+      year: "2026",
+      description: "Learned how to leverage AI for research and gaining insights.",
+      image: "",
+      credentialUrl: "https://drive.google.com/file/d/1TQggkrHxX0RjjzAiD4gbtk34pG4m_AUV/view?usp=drive_link"
+    },
+    {
+      title: "AI for Writing and Communicating",
+      issuer: "Google (Coursera)",
+      year: "2026",
+      description: "Learned how to leverage AI for writing and communication tasks.",
+      image: "",
+      credentialUrl: "https://drive.google.com/file/d/1OuTVkoz0Bg0bVKJ1osv0BwZhpdV60CQ8/view?usp=drive_link"
+    },
+    {
+      title: "AI for Content Creation",
+      issuer: "Google (Coursera)",
+      year: "2026",
+      description: "Learned how to utilize AI for content creation and generation.",
+      image: "",
+      credentialUrl: "https://drive.google.com/file/d/1gg3TqpEFjL2eT3abHhH3iJoY6FQot5nd/view?usp=drive_link"
+    },
+    {
+      title: "AI for Data Analysis",
+      issuer: "Google (Coursera)",
+      year: "2026",
+      description: "Learned how to apply AI for data analysis and interpretation.",
+      image: "",
+      credentialUrl: "https://drive.google.com/file/d/19y4ZxVh0gIfMLWyVA8VbwmZw-LSypIgK/view?usp=drive_link"
+    },
+    {
+      title: "AI for App Building",
+      issuer: "Google (Coursera)",
+      year: "2026",
+      description: "Learned how to leverage AI for app building.",
+      image: "",
+      credentialUrl: "https://drive.google.com/file/d/1K4MEN0dNQgLCTAflea0E23G0DxwmamAM/view?usp=drive_link"
+    },
+    {
+      title: "AI for App Deployment",
+      issuer: "Google (Coursera)",
+      year: "2026",
+      description: "Learned how to leverage AI for app deployment.",
+      image: "",
+      credentialUrl: "https://drive.google.com/file/d/1r9By7N3wbyzxsFmkUvC3rQ3lxNS-tl5X/view?usp=drive_link"
+    }
+  ],
+  notableAchievements: [
+    {
+      title: "Learning Express Program",
+      organization: "BatState-U TNEU × Singapore Polytechnic",
+      type: "Program",
+      description: "Participated in LeX 2025: Global to Local Community Engagement.",
+      year: "2025"
+    },
+    {
+      title: "CICS Governor Mabini",
+      organization: "Supreme Student Council",
+      type: "Leadership",
+      description: "Assigned as CICS Governor Mabini for the 2025-2026 academic year.",
+      year: "2025-2026"
+    },
+    {
+      title: "CICS Student Council Leadership",
+      organization: "CICS Mabini Student Council",
+      type: "Leadership",
+      description: "Served as 1st Year Representative (2023-2024), President (2024-2025), and VP for External Affairs (2025-2026).",
+      year: "2023-2026"
+    },
+    {
+      title: "Computer System Servicing NC II",
+      organization: "TESDA",
+      type: "Certification",
+      description: "Completed National Certificate II for Computer System Servicing.",
+      year: "2023"
+    }
+  ],
+  contact: {
+    email: "jhonmcneilmagtibay5002@gmail.com",
+    linkedin: "https://linkedin.com/in/jhon-mcneil-magtibay",
+    github: "https://github.com/JhonMcFrost",
+    facebook: "https://facebook.com/jhonmcneil.magtibay.7",
+    instagram: "https://instagram.com/jhon_mc.neil"
+  }
+};
