@@ -24,10 +24,6 @@ export const AboutAndSkillsSection: React.FC<AboutAndSkillsSectionProps> = ({ da
             ABOUT ME
           </span>
 
-          <h2 className="font-display text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 mb-4">
-            A little bit about me
-          </h2>
-
           <p className="text-base leading-relaxed text-slate-600 whitespace-pre-line">
             {about}
           </p>

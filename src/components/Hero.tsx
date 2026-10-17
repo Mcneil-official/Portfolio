@@ -26,10 +26,6 @@ export const Hero: React.FC<HeroProps> = ({ data, onProjectsClick }) => {
             {data.title || 'Full Stack Developer'}
           </h2>
 
-          <p className="max-w-xl text-base leading-relaxed text-slate-600 mb-8">
-            {data.subtitle ||
-              'I design and build scalable, secure backend systems and clean, reliable web experiences. Passionate about creating user-centered solutions with seamless performance.'}
-          </p>
 
           {/* Action Buttons matching reference photo */}
           <div className="flex flex-wrap items-center gap-3.5">
@@ -71,7 +67,7 @@ export const Hero: React.FC<HeroProps> = ({ data, onProjectsClick }) => {
               <img
                 src={fullbodyPhoto || '/images/fullbody.png'}
                 alt={data.name || 'Profile portrait'}
-                className="w-full h-full object-cover object-top scale-105 rounded-full"
+                className="w-full h-full object-cover object-[100%_40%] scale-125 rounded-full"
                 onError={(e) => {
                   const target = e.currentTarget;
                   if (target.src !== '/images/fullbody.png') {
