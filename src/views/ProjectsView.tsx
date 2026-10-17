@@ -34,15 +34,15 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({
 
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="content-wrapper mx-auto w-full max-w-[1140px] px-2 sm:px-4 flex-1">
-        <section className="pt-10 pb-6 lg:pt-16">
+      <div className="content-wrapper mx-auto w-full max-w-[1060px] flex-1">
+        <section className="pt-6 pb-6 lg:pt-10">
           <div className="mb-4">
             <button
               type="button"
               onClick={onBackToHome}
               className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-700 hover:text-indigo-800 transition-colors cursor-pointer"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="m15 18-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               Back to Home
@@ -53,7 +53,7 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({
             All Projects
           </h1>
           <div className="mt-3 h-1 w-16 rounded-full bg-indigo-700"></div>
-          <p className="mt-6 max-w-2xl text-slate-500">
+          <p className="mt-4 max-w-2xl text-slate-500 text-sm sm:text-base">
             All my projects — from web applications and REST APIs to data and machine learning experiments. Click any card to view details.
           </p>
 
@@ -90,7 +90,7 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({
         </section>
       </div>
 
-      <div className="-mx-4 sm:-mx-8 lg:-mx-12">
+      <div className="-mx-4 sm:-mx-8 lg:-mx-10 mt-12">
         <FooterContact contact={contact} name={name} />
       </div>
     </div>

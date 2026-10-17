@@ -28,8 +28,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
 }) => {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Main Dashboard Canvas */}
-      <div className="content-wrapper mx-auto w-full max-w-[1140px] px-2 sm:px-4 flex-1">
+      {/* Main Dashboard Canvas - perfectly centered with balanced margins */}
+      <div className="content-wrapper mx-auto w-full max-w-[1060px] flex-1">
         {/* 1. Hero Section */}
         <Hero
           data={data}
@@ -71,8 +71,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </div>
 
-      {/* 8. Full-Width Dark Footer with Contact Form & Socials matching reference */}
-      <div className="-mx-4 sm:-mx-8 lg:-mx-12">
+      {/* 8. Full-Width Dark Footer matching container padding precisely */}
+      <div className="-mx-4 sm:-mx-8 lg:-mx-10 mt-12">
         <FooterContact contact={data.contact} name={data.name} />
       </div>
     </div>

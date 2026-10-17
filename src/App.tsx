@@ -166,7 +166,7 @@ export const App: React.FC = () => {
   }, [activePage]);
 
   return (
-    <div className="bg-slate-50 text-slate-900 antialiased min-h-screen">
+    <div className="bg-slate-50 text-slate-900 antialiased min-h-screen overflow-x-hidden">
       <PageLoader isLoading={isLoading} />
 
       <Sidebar
@@ -176,38 +176,41 @@ export const App: React.FC = () => {
         onNavigatePage={handleNavigatePage}
       />
 
-      <main className="main-content min-h-screen w-full px-4 py-6 sm:px-8 lg:ml-64 lg:px-12">
-        {activePage === 'home' && (
-          <HomeView
-            data={data}
-            onSelectProject={setSelectedProject}
-            onSelectCertificate={setSelectedCertificate}
-            onViewAllProjects={() => handleNavigatePage('projects')}
-            onViewAllCertificates={() => handleNavigatePage('certificates')}
-            onScrollToSection={handleScrollToSection}
-          />
-        )}
+      {/* Main Content Area: uses lg:pl-52 so content is centered in available viewport without right overflow */}
+      <div className="min-h-screen lg:pl-52 transition-all">
+        <main className="main-content min-h-screen w-full px-4 py-6 sm:px-8 lg:px-10">
+          {activePage === 'home' && (
+            <HomeView
+              data={data}
+              onSelectProject={setSelectedProject}
+              onSelectCertificate={setSelectedCertificate}
+              onViewAllProjects={() => handleNavigatePage('projects')}
+              onViewAllCertificates={() => handleNavigatePage('certificates')}
+              onScrollToSection={handleScrollToSection}
+            />
+          )}
 
-        {activePage === 'projects' && (
-          <ProjectsView
-            projects={data.projects}
-            contact={data.contact}
-            name={data.name}
-            onSelectProject={setSelectedProject}
-            onBackToHome={() => handleNavigatePage('home')}
-          />
-        )}
+          {activePage === 'projects' && (
+            <ProjectsView
+              projects={data.projects}
+              contact={data.contact}
+              name={data.name}
+              onSelectProject={setSelectedProject}
+              onBackToHome={() => handleNavigatePage('home')}
+            />
+          )}
 
-        {activePage === 'certificates' && (
-          <CertificatesView
-            certificates={data.certificates}
-            contact={data.contact}
-            name={data.name}
-            onSelectCertificate={setSelectedCertificate}
-            onBackToHome={() => handleNavigatePage('home')}
-          />
-        )}
-      </main>
+          {activePage === 'certificates' && (
+            <CertificatesView
+              certificates={data.certificates}
+              contact={data.contact}
+              name={data.name}
+              onSelectCertificate={setSelectedCertificate}
+              onBackToHome={() => handleNavigatePage('home')}
+            />
+          )}
+        </main>
+      </div>
 
       {/* Modals */}
       <ProjectModal
