@@ -1,5 +1,6 @@
 import React from 'react';
 import { PortfolioData } from '../types';
+import fullbodyPhoto from '../../images/fullbody.png';
 
 interface HeroProps {
   data: PortfolioData;
@@ -68,14 +69,13 @@ export const Hero: React.FC<HeroProps> = ({ data, onProjectsClick }) => {
             {/* Clean Static Circular Container */}
             <div className="rounded-full w-full h-full bg-gradient-to-tr from-slate-200 via-indigo-50 to-indigo-100/70 overflow-hidden shadow-inner flex items-center justify-center p-2">
               <img
-                src="/images/fullbody.png"
+                src={fullbodyPhoto || '/images/fullbody.png'}
                 alt={data.name || 'Profile portrait'}
                 className="w-full h-full object-cover object-top scale-105 rounded-full"
                 onError={(e) => {
-                  // Fallback if image path differs
                   const target = e.currentTarget;
-                  if (!target.src.includes('images/fullbody.png')) {
-                    target.src = 'images/fullbody.png';
+                  if (target.src !== '/images/fullbody.png') {
+                    target.src = '/images/fullbody.png';
                   }
                 }}
               />
