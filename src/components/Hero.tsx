@@ -25,6 +25,10 @@ export const Hero: React.FC<HeroProps> = ({ data, onProjectsClick }) => {
             {data.title || 'Full Stack Developer'}
           </h2>
 
+          <p className="max-w-xl text-base leading-relaxed text-slate-600 mb-8">
+            {data.subtitle ||
+              'I design and build scalable, secure backend systems and clean, reliable web experiences. Passionate about creating user-centered solutions with seamless performance.'}
+          </p>
 
           {/* Action Buttons matching reference photo */}
           <div className="flex flex-wrap items-center gap-3.5">
@@ -55,25 +59,34 @@ export const Hero: React.FC<HeroProps> = ({ data, onProjectsClick }) => {
           </div>
         </div>
 
-        {/* Right Column: Static Circular Portrait */}
+        {/* Right Column: Printed Photo Card with Washi Tape */}
         <div className="lg:col-span-5 flex justify-center lg:justify-end">
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[380px] lg:h-[380px]">
-            {/* Soft backdrop ambient glow */}
-            <div className="absolute inset-0 bg-indigo-100/50 rounded-full blur-2xl transform scale-95 -z-10"></div>
+          <div className="relative pt-4 pb-2 w-full max-w-[420px] flex justify-center lg:justify-end">
+            {/* Washi / Masking Tape Accent pinned on top center */}
+            <div
+              className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-32 sm:w-36 h-8 bg-amber-100/80 border-y border-amber-200/60 shadow-xs z-20 -rotate-1 backdrop-blur-2xs"
+              style={{
+                clipPath: 'polygon(0% 0%, 100% 2%, 98% 100%, 2% 98%)',
+              }}
+              aria-hidden="true"
+            />
 
-            {/* Clean Static Circular Container */}
-            <div className="rounded-full w-full h-full bg-gradient-to-tr from-slate-200 via-indigo-50 to-indigo-100/70 overflow-hidden shadow-inner flex items-center justify-center p-2">
-              <img
-                src="/images/fullbody.png"
-                alt={data.name || 'Profile portrait'}
-                className="w-full h-full object-cover object-[100%_40%] scale-125 rounded-full"
-                onError={(e) => {
-                  const target = e.currentTarget;
-                  if (target.src !== '/images/fullbody.png') {
-                    target.src = '/images/fullbody.png';
-                  }
-                }}
-              />
+            {/* Printed Photo Card with Wider Dimensions */}
+            <div className="relative w-full sm:w-[380px] lg:w-[410px] bg-white p-3.5 sm:p-4.5 pb-5 sm:pb-7 rounded-xs shadow-[0_22px_55px_rgba(15,23,42,0.14),0_6px_18px_rgba(15,23,42,0.08)] rotate-[2deg] hover:rotate-0 transition-transform duration-300">
+              {/* Photo Area with Wider Landscape Aspect Ratio matching 577x433 photo */}
+              <div className="w-full aspect-[4/3.1] overflow-hidden bg-slate-100 shadow-inner">
+                <img
+                  src="/images/fullbody.jpg"
+                  alt={data.name || 'Profile portrait'}
+                  className="w-full h-full object-cover object-[54%_34%] scale-[1.32] -translate-x-2.5 -translate-y-1.5 origin-center"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (target.src.endsWith('.jpg')) {
+                      target.src = '/images/fullbody.png';
+                    }
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
